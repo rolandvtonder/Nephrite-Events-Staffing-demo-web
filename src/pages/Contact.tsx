@@ -1,5 +1,5 @@
 import { useRef, useState, type FormEvent } from 'react'
-import { EVENT_TYPES, ROLES, SITE, waLink } from '../site'
+import { EVENT_TYPES, ROLES, SITE, waLink, u } from '../site'
 import { Arrow, Dot, Reveal, TextLink } from '../ui'
 import Nav from '../components/Nav'
 import PageHero from '../components/PageHero'
@@ -100,7 +100,7 @@ export default function Contact() {
             </>
           }
           intro="Tell us about your event and we'll come back to you with a free, no-obligation quotation."
-          photo="/assets/hero-2.webp"
+          photo={u('assets/hero-2.webp')}
         />
 
         <section id="quote" className="section contact-page" aria-label="Quote request and contact details">

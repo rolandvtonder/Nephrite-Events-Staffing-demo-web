@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { motion } from 'motion/react'
-import { GALLERY, TAGS, photoSet, type Tag } from '../site'
+import { GALLERY, TAGS, photoSet, type Tag, u } from '../site'
 import { Arrow, EASE } from '../ui'
 
 /*
@@ -101,7 +101,7 @@ export default function Gallery({ filters = false, limit }: { filters?: boolean;
       >
         {g && (
           <figure className="lightbox-figure">
-            <img src={`/assets/gallery/${g.n}.webp`} alt={g.alt} />
+            <img src={u(`assets/gallery/${g.n}.webp`)} alt={g.alt} />
             <figcaption>
               <span>{g.alt}</span>
               <span className="label" style={{ color: 'var(--color-ash)' }}>

@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { animate, useInView, useReducedMotion } from 'motion/react'
-import { AWARDS, ROLES, SITE, VALUES, photoSet } from '../site'
+import { AWARDS, ROLES, SITE, VALUES, photoSet, u } from '../site'
 import { Dot, Reveal, SectionHead, TextLink } from '../ui'
 import Nav from '../components/Nav'
 import PageHero from '../components/PageHero'
@@ -49,7 +49,7 @@ export default function About() {
             </>
           }
           intro="Nephrite Events & Staffing is a one-stop events management and staffing company, based in Cape Town and serving the Western Cape and Johannesburg."
-          photo="/assets/hero-4.webp"
+          photo={u('assets/hero-4.webp')}
         />
 
         {/* ---- story ---- */}

@@ -1,5 +1,5 @@
 import { motion } from 'motion/react'
-import { SERVICES } from '../site'
+import { SERVICES, u } from '../site'
 import { Arrow, Dot, EASE, TextLink } from '../ui'
 
 /*
@@ -32,11 +32,11 @@ export default function ServicesTall() {
           >
             <a
               className="card-link tall-card"
-              href={`/services/#${c.slug}`}
+              href={u(`services/#${c.slug}`)}
               aria-label={`${c.title.replace('\n', ' ')}: ${c.desc} Read more`}
             >
               <span className="card" aria-hidden />
-              <img className="card-art" src={`/assets/${c.art}.webp`} alt="" width={76} height={76} loading="lazy" />
+              <img className="card-art" src={u(`assets/${c.art}.webp`)} alt="" width={76} height={76} loading="lazy" />
               <span className="label tall-card-i">{c.i}</span>
               <span className="display tall-card-title">{c.title}</span>
               <span className="card-desc tall-card-desc">{c.desc}</span>
@@ -48,7 +48,7 @@ export default function ServicesTall() {
         ))}
       </ul>
       <div style={{ marginTop: 44 }}>
-        <TextLink href="/services/">All services</TextLink>
+        <TextLink href={u('services/')}>All services</TextLink>
       </div>
     </section>
   )

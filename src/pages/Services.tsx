@@ -1,4 +1,4 @@
-import { QUOTE_HREF, ROLES, SERVICE_DETAIL, STEPS, SITE, photoSet, waLink } from '../site'
+import { QUOTE_HREF, ROLES, SERVICE_DETAIL, STEPS, SITE, photoSet, waLink, u } from '../site'
 import { Dot, Pill, Reveal, SectionHead, TextLink } from '../ui'
 import Nav from '../components/Nav'
 import PageHero from '../components/PageHero'
@@ -20,7 +20,7 @@ export default function Services() {
             </>
           }
           intro="Reliable, professional event staff, and everything around them. From a single bartender to a full crew with a coordinator, we supply the people who make an event run."
-          photo="/assets/hero-1.webp"
+          photo={u('assets/hero-1.webp')}
         >
           <Pill href={QUOTE_HREF} h={64} text={16}>
             Get a Quote

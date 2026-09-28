@@ -2,7 +2,7 @@ import { useLayoutEffect, useRef, useState, type CSSProperties } from 'react'
 import { useMotionValueEvent, useReducedMotion, useScroll } from 'motion/react'
 import { I, P, PHOTOS, PHOTO_SPAN, PHOTO_SPAN_TALL, SCROLL_VH, SCROLL_VH_TALL, span } from '../scroll'
 import { CARD, HERO, SEC, STAGE_H, STAGE_W, placeCard } from '../layout'
-import { FACTS, QUOTE_HREF, ROLES, SERVICES, SITE } from '../site'
+import { FACTS, QUOTE_HREF, ROLES, SERVICES, SITE, u } from '../site'
 import { Arrow, Dot, Mask, Pill, Reveal, SectionHead, TextLink, box, px, useIntro } from '../ui'
 import Nav from '../components/Nav'
 import ServicesTall from '../components/ServicesTall'
@@ -54,7 +54,7 @@ function Photos({ q, tall, reduce }: { q: number; tall: boolean; reduce: boolean
         return (
           <img
             key={name}
-            src={`/assets/${name}.webp`}
+            src={u(`assets/${name}.webp`)}
             alt=""
             decoding="async"
             fetchPriority={i === 0 ? 'high' : 'low'}
@@ -232,7 +232,7 @@ export default function Home() {
                     </h2>
                   </Mask>
                   <div style={{ ...box(SEC.more), opacity: tSec, display: 'flex', justifyContent: 'flex-end' }}>
-                    <TextLink href="/services/">All services</TextLink>
+                    <TextLink href={u('services/')}>All services</TextLink>
                   </div>
 
                   {/*
@@ -306,8 +306,8 @@ export default function Home() {
               ))}
             </ul>
             <div className="row-actions">
-              <TextLink href="/about/">About us</TextLink>
-              <TextLink href="/services/">How we work</TextLink>
+              <TextLink href={u('about/')}>About us</TextLink>
+              <TextLink href={u('services/')}>How we work</TextLink>
             </div>
           </Reveal>
         </section>
@@ -321,7 +321,7 @@ export default function Home() {
               served
               <Dot />
             </SectionHead>
-            <TextLink href="/gallery/">See all photos</TextLink>
+            <TextLink href={u('gallery/')}>See all photos</TextLink>
           </Reveal>
           <Gallery limit={6} />
         </section>
@@ -336,14 +336,14 @@ function WideCard({ c }: { c: (typeof SERVICES)[number] }) {
   return (
     <a
       className="card-link"
-      href={`/services/#${c.slug}`}
+      href={u(`services/#${c.slug}`)}
       aria-label={`${c.title.replace('\n', ' ')}: ${c.desc} Read more`}
       style={abs({ inset: 0, borderRadius: px(CARD.radius) })}
     >
       <div className="card" style={abs({ inset: 0, borderRadius: px(CARD.radius) })} />
       <img
         className="card-art"
-        src={`/assets/${c.art}.webp`}
+        src={u(`assets/${c.art}.webp`)}
         alt=""
         width={CARD.art}
         height={CARD.art}

@@ -1,4 +1,4 @@
-import { NAV, QUOTE_HREF, SITE } from '../site'
+import { NAV, QUOTE_HREF, SITE, u } from '../site'
 import { Dot, Pill } from '../ui'
 
 /*
@@ -41,7 +41,7 @@ export default function Footer({ cta = true }: { cta?: boolean }) {
       <div className="footer-grid">
         <div className="footer-brand">
           <img
-            src="/assets/logo-full.png"
+            src={u('assets/logo-full.png')}
             alt={`${SITE.name}. ${SITE.tagline}`}
             width={770}
             height={359}
@@ -57,7 +57,7 @@ export default function Footer({ cta = true }: { cta?: boolean }) {
           <h3 className="label footer-h">Pages</h3>
           <ul className="footer-list">
             <li>
-              <a href="/">Home</a>
+              <a href={u('')}>Home</a>
             </li>
             {NAV.map((l) => (
               <li key={l.id}>

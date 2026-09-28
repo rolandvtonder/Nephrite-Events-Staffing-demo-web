@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { NAV, QUOTE_HREF, SITE, type PageId } from '../site'
+import { NAV, QUOTE_HREF, SITE, type PageId, u } from '../site'
 
 /*
   Pinned at the viewport edge on every page, full and steady from the first
@@ -21,8 +21,8 @@ export default function Nav({ page }: { page: PageId }) {
 
   return (
     <header className="nav">
-      <a href="/" className="nav-logo" aria-label={`${SITE.name}, home`}>
-        <img src="/assets/logo-nav.png" alt="" width={438} height={160} />
+      <a href={u('')} className="nav-logo" aria-label={`${SITE.name}, home`}>
+        <img src={u('assets/logo-nav.png')} alt="" width={438} height={160} />
       </a>
 
       <nav className="nav-links" aria-label="Main">
@@ -52,8 +52,8 @@ export default function Nav({ page }: { page: PageId }) {
 
       <dialog ref={dlg} className="menu" aria-label="Menu" onClose={() => setOpen(false)}>
         <div className="menu-top">
-          <a href="/" className="nav-logo" aria-label={`${SITE.name}, home`}>
-            <img src="/assets/logo-nav.png" alt="" width={438} height={160} />
+          <a href={u('')} className="nav-logo" aria-label={`${SITE.name}, home`}>
+            <img src={u('assets/logo-nav.png')} alt="" width={438} height={160} />
           </a>
           <button type="button" className="label nav-menu-btn menu-close" onClick={() => setOpen(false)}>
             Close
@@ -65,7 +65,7 @@ export default function Nav({ page }: { page: PageId }) {
         <nav aria-label="Main">
           <ul className="menu-list">
             <li>
-              <a href="/" className="display" aria-current={page === 'home' ? 'page' : undefined}>
+              <a href={u('')} className="display" aria-current={page === 'home' ? 'page' : undefined}>
                 Home
               </a>
             </li>

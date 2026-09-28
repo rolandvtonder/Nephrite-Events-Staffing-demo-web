@@ -8,6 +8,12 @@
   2024 awards).
 */
 
+/* The site can live at a domain root or under a sub-path (GitHub Pages serves
+   it at /<repo>/). Every internal link and asset goes through u() so it picks
+   up that prefix; Vite sets BASE_URL from `base` in vite.config.ts. */
+const BASE = import.meta.env.BASE_URL
+export const u = (path: string) => BASE + path.replace(/^\//, '')
+
 const WA = '27848934550'
 export const waLink = (text: string) => `https://wa.me/${WA}?text=${encodeURIComponent(text)}`
 
@@ -31,13 +37,13 @@ export const SITE = {
 export type PageId = 'home' | 'services' | 'about' | 'gallery' | 'contact'
 
 export const NAV: { id: Exclude<PageId, 'home'>; label: string; href: string }[] = [
-  { id: 'services', label: 'Services', href: '/services/' },
-  { id: 'about', label: 'About', href: '/about/' },
-  { id: 'gallery', label: 'Gallery', href: '/gallery/' },
-  { id: 'contact', label: 'Contact', href: '/contact/' },
+  { id: 'services', label: 'Services', href: u('services/') },
+  { id: 'about', label: 'About', href: u('about/') },
+  { id: 'gallery', label: 'Gallery', href: u('gallery/') },
+  { id: 'contact', label: 'Contact', href: u('contact/') },
 ]
 
-export const QUOTE_HREF = '/contact/#quote'
+export const QUOTE_HREF = u('contact/#quote')
 
 /* the row under the home headline */
 export const FACTS = [
@@ -185,6 +191,6 @@ export const GALLERY: { n: string; w: number; h: number; alt: string; tag: Tag }
 
 /** Responsive source set for a gallery photo: the 640 thumb and the 1600 original. */
 export const photoSet = (n: string) => ({
-  src: `/assets/gallery/${n}-sm.webp`,
-  srcSet: `/assets/gallery/${n}-sm.webp 640w, /assets/gallery/${n}.webp 1600w`,
+  src: u(`assets/gallery/${n}-sm.webp`),
+  srcSet: `${u(`assets/gallery/${n}-sm.webp`)} 640w, ${u(`assets/gallery/${n}.webp`)} 1600w`,
 })
